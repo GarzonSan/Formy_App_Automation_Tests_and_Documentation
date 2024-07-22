@@ -1,0 +1,7 @@
+{
+    "robot.language-server.python": "d:\\Documents\\Test Automation Projects\\FORMY_App\\Formy_App_Automation_Tests\\venv\\Scripts\\python.exe",
+    "robot.python.executable": "d:\\Documents\\Test Automation Projects\\FORMY_App\\Formy_App_Automation_Tests\\venv\\Scripts\\python.exe",
+    "robot.pythonpath": [
+        "${workspaceFolder}"
+    ]
+}
