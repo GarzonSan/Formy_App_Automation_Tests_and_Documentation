@@ -1,6 +1,12 @@
 # Formy Automation Tests Portifolio
 **Formy** is a demo web application that contains multiple different types of common web attibutes that help when you need to practice or showcase specific situations involving autonomously interacting with web applications.
 
+## Documentation
+The following documentation was written by me for this project:
+* [Test Plan](https://github.com/GarzonSan/Formy_App_Automation_Tests_and_Documentation/blob/main/_Tests%20Documentation/Test%20Plan%20-%20Project%20FORMY.pdf)
+* [Test Strategy](https://github.com/GarzonSan/Formy_App_Automation_Tests_and_Documentation/blob/main/_Tests%20Documentation/Test%20Strategy%20-%20Project%20FORMY.pdf)
+* [Test Cases Sample](https://github.com/GarzonSan/Formy_App_Automation_Tests_and_Documentation/blob/main/_Tests%20Documentation/FORMY%20Project%20-%20Test%20Cases.xlsx)
+
 ## Objective
 I chose this application to start my portifolio. Not only for its simplicity, but also to show that even the smaller of the applications can be tested for something. I also believe that it is a good way to show understanding of the basics, and practical application of the good practices.
 
