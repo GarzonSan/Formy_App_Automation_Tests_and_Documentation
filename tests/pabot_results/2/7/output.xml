@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.3 on win32)" generated="2024-07-22T21:58:58.878736" rpa="false" schemaversion="5">
+<suite id="s1" name="AppFunctionalityTest" source="D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\AppFunctionalityTest.robot">
+<test id="s1-t1" name="User Try To Submit The Form Without Any Information" line="31">
+<kw name="Start Session" owner="generic" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-07-22T21:58:59.164916" level="INFO">Test ran on Firefox.</msg>
+<arg>Test ran on ${target_browser}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-07-22T21:58:59.164916" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:59.165913" level="INFO">Opening browser 'Firefox' to base url 'https://formy-project.herokuapp.com/form'.</msg>
+<arg>${root_url}</arg>
+<arg>${target_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-22T21:58:59.164916" elapsed="7.226589"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:59.163918" elapsed="7.227587"/>
+</kw>
+<kw name="Submit Form" owner="registrationPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:06.392503" level="INFO">Clicking element 'xpath://div[@class='form-group']/div/a[@role='button']'.</msg>
+<arg>${submit_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:06.392503" elapsed="0.244275"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:59:06.391505" elapsed="0.245273"/>
+</kw>
+<kw name="Check Confirmation" owner="registrationPage">
+<kw name="Check if Confirmation is Visible in the Page and Message is Correct" owner="generic">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-07-22T21:59:06.637775" elapsed="0.010972"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:06.660714" level="INFO">${text} = The form was successfully submitted!</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:06.648747" elapsed="0.011967"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-07-22T21:59:06.661712" level="FAIL">The form could not be submitted : != The form was successfully submitted!</msg>
+<arg>${message}</arg>
+<arg>${text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2024-07-22T21:59:06.660714" elapsed="0.000998">The form could not be submitted : != The form was successfully submitted!</status>
+</kw>
+<arg>${alert_message_element}</arg>
+<arg>${msg}</arg>
+<status status="FAIL" start="2024-07-22T21:59:06.636778" elapsed="0.025931">The form could not be submitted : != The form was successfully submitted!</status>
+</kw>
+<arg>${failed_alert_msg}</arg>
+<status status="FAIL" start="2024-07-22T21:59:06.636778" elapsed="0.025931">The form could not be submitted : != The form was successfully submitted!</status>
+</kw>
+<kw name="Close Session" owner="generic" type="TEARDOWN">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2024-07-22T21:59:06.663707" elapsed="0.002992"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-22T21:59:06.666699" elapsed="2.960838"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:59:06.662709" elapsed="2.964828"/>
+</kw>
+<tag>REGRESSION</tag>
+<tag>SMOKE</tag>
+<status status="FAIL" start="2024-07-22T21:58:59.163918" elapsed="10.463619">The form could not be submitted : != The form was successfully submitted!</status>
+</test>
+<doc>The test cases in this script focus in testing the app functional requirements
+and issues that might be found by misinterpretation of those.</doc>
+<status status="FAIL" start="2024-07-22T21:58:58.902648" elapsed="10.725886"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">REGRESSION</stat>
+<stat pass="0" fail="1" skip="0">SMOKE</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="AppFunctionalityTest">AppFunctionalityTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.3 on win32)" generated="2024-07-22T21:58:58.482620" rpa="false" schemaversion="5">
+<suite id="s1" name="AppFunctionalityTest" source="D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\AppFunctionalityTest.robot">
+<test id="s1-t1" name="User Try To Submit The Form Without Any Information" line="31">
+<kw name="Start Session" owner="generic" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-07-22T21:58:58.817874" level="INFO">Test ran on Chrome.</msg>
+<arg>Test ran on ${target_browser}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-07-22T21:58:58.817874" elapsed="0.000998"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:58.818872" level="INFO">Opening browser 'Chrome' to base url 'https://formy-project.herokuapp.com/form'.</msg>
+<arg>${root_url}</arg>
+<arg>${target_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-22T21:58:58.818872" elapsed="1.933829"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:58.816875" elapsed="1.935826"/>
+</kw>
+<kw name="Submit Form" owner="registrationPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:00.755694" level="INFO">Clicking element 'xpath://div[@class='form-group']/div/a[@role='button']'.</msg>
+<msg time="2024-07-22T21:59:01.582708" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-07-22T21:59:01.582708" level="FAIL">Element with locator 'xpath://div[@class='form-group']/div/a[@role='button']' not found.</msg>
+<arg>${submit_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-07-22T21:59:00.754696" elapsed="0.886377">Element with locator 'xpath://div[@class='form-group']/div/a[@role='button']' not found.</status>
+</kw>
+<status status="FAIL" start="2024-07-22T21:59:00.753699" elapsed="0.887374">Element with locator 'xpath://div[@class='form-group']/div/a[@role='button']' not found.</status>
+</kw>
+<kw name="Check Confirmation" owner="registrationPage">
+<arg>${failed_alert_msg}</arg>
+<status status="NOT RUN" start="2024-07-22T21:59:01.641073" elapsed="0.000000"/>
+</kw>
+<kw name="Close Session" owner="generic" type="TEARDOWN">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2024-07-22T21:59:01.642071" elapsed="0.008326"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-22T21:59:01.650397" elapsed="2.096416"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:59:01.642071" elapsed="2.104742"/>
+</kw>
+<tag>REGRESSION</tag>
+<tag>SMOKE</tag>
+<status status="FAIL" start="2024-07-22T21:58:58.816875" elapsed="4.929938">Element with locator 'xpath://div[@class='form-group']/div/a[@role='button']' not found.</status>
+</test>
+<doc>The test cases in this script focus in testing the app functional requirements
+and issues that might be found by misinterpretation of those.</doc>
+<status status="FAIL" start="2024-07-22T21:58:58.512186" elapsed="5.235617"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">REGRESSION</stat>
+<stat pass="0" fail="1" skip="0">SMOKE</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="AppFunctionalityTest">AppFunctionalityTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

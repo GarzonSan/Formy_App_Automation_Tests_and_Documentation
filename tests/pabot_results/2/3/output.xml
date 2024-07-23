@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.3 on win32)" generated="2024-07-22T21:58:47.429872" rpa="false" schemaversion="5">
+<suite id="s1" name="AppFunctionalityTest" source="D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\AppFunctionalityTest.robot">
+<test id="s1-t1" name="Dropdown Field is Displaying Intended Content" line="20">
+<kw name="Start Session" owner="generic" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-07-22T21:58:47.870603" level="INFO">Test ran on Firefox.</msg>
+<arg>Test ran on ${target_browser}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-07-22T21:58:47.870603" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:47.871600" level="INFO">Opening browser 'Firefox' to base url 'https://formy-project.herokuapp.com/form'.</msg>
+<arg>${root_url}</arg>
+<arg>${target_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-22T21:58:47.870603" elapsed="8.664755"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:47.869605" elapsed="8.665753"/>
+</kw>
+<kw name="Check if Element is Loaded" owner="generic">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.536356" elapsed="0.017952"/>
+</kw>
+<arg>${form_experience_field}</arg>
+<status status="PASS" start="2024-07-22T21:58:56.536356" elapsed="0.017952"/>
+</kw>
+<kw name="Check if Options Matches Expected" owner="registrationPage">
+<kw name="Get List Items" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:56.595668" level="INFO">@{menu_options} = [ Select an option | 0-1 | 2-4 | 5-9 | 10+ ]</msg>
+<var>@{menu_options}</var>
+<arg>${form_experience_field}</arg>
+<doc>Returns all labels or values of selection list ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.555305" elapsed="0.040363"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-07-22T21:58:56.595668" level="INFO">@{test_list} = [ ]</msg>
+<var>@{test_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.595668" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-07-22T21:58:56.596694" level="INFO">${index} = 1</msg>
+<var>${index}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.596694" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${test_list}</arg>
+<arg>${element}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.596694" elapsed="0.000000"/>
+</kw>
+<var name="${element}">Select an option</var>
+<status status="PASS" start="2024-07-22T21:58:56.596694" elapsed="0.000994"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${test_list}</arg>
+<arg>${element}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.597688" elapsed="0.000000"/>
+</kw>
+<var name="${element}">0-1</var>
+<status status="PASS" start="2024-07-22T21:58:56.597688" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${test_list}</arg>
+<arg>${element}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.597688" elapsed="0.000000"/>
+</kw>
+<var name="${element}">2-4</var>
+<status status="PASS" start="2024-07-22T21:58:56.597688" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${test_list}</arg>
+<arg>${element}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.598690" elapsed="0.000000"/>
+</kw>
+<var name="${element}">5-9</var>
+<status status="PASS" start="2024-07-22T21:58:56.598690" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${test_list}</arg>
+<arg>${element}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.598690" elapsed="0.000967"/>
+</kw>
+<var name="${element}">10+</var>
+<status status="PASS" start="2024-07-22T21:58:56.598690" elapsed="0.000967"/>
+</iter>
+<var>${element}</var>
+<value>@{menu_options}</value>
+<status status="PASS" start="2024-07-22T21:58:56.596694" elapsed="0.002963"/>
+</for>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${menu_options}</arg>
+<arg>${test_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.599657" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:56.555305" elapsed="0.044352"/>
+</kw>
+<kw name="Close Session" owner="generic" type="TEARDOWN">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.600655" elapsed="0.001994"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.602649" elapsed="2.903854"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:56.599657" elapsed="2.906846"/>
+</kw>
+<tag>SMOKE</tag>
+<tag>VALIDATION</tag>
+<status status="PASS" start="2024-07-22T21:58:47.868607" elapsed="11.637896"/>
+</test>
+<doc>The test cases in this script focus in testing the app functional requirements
+and issues that might be found by misinterpretation of those.</doc>
+<status status="PASS" start="2024-07-22T21:58:47.461786" elapsed="12.045742"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">SMOKE</stat>
+<stat pass="1" fail="0" skip="0">VALIDATION</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="AppFunctionalityTest">AppFunctionalityTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,30 @@
+==============================================================================
+AppFunctionalityTest :: The test cases in this script focus in testing the ...
+==============================================================================
+User Fills Incorrect Or Invalid Data and Submits the Form               
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\AppFunctionalityTest.robot:25
+    T:  User Fills Incorrect Or Invalid Data and Submits the Form    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\AppFunctionalityTest.robot:29
+      Check Confirmation    ${failed_alert_msg}
+      |  ${failed_alert_msg} = The form could not be submitted : (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\PO\registrationPage.robot:66
+      Check if Confirmation is Visible in the Page and Message is Correct    ${alert_message_element}    ${msg}
+      |  ${alert_message_element} = xpath://div[@role='alert'] (str)
+      |  ${msg} = <Unable to define variable value>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\PO\generic.robot:29
+      Should Be Equal As Strings    ${message}    ${text}
+      |  ${message} = The form could not be submitted : (str)
+      |  ${text} = The form was successfully submitted! (str)
+______________________________________________________________________________
+| FAIL |
+The form could not be submitted : != The form was successfully submitted!
+------------------------------------------------------------------------------
+AppFunctionalityTest :: The test cases in this script focus in tes... | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\pabot_results\2\5\output.xml

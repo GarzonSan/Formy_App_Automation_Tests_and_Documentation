@@ -1,0 +1,23 @@
+==============================================================================
+AppFunctionalityTest :: The test cases in this script focus in testing the ...
+==============================================================================
+User Try To Submit The Form Without Any Information                     
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\AppFunctionalityTest.robot:31
+    T:  User Try To Submit The Form Without Any Information    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\AppFunctionalityTest.robot:34
+      Submit Form    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\PO\registrationPage.robot:62
+      Click Element    ${submit_button}
+      |  ${submit_button} = xpath://div[@class='form-group']/div/a[@role='button'] (str)
+______________________________________________________________________________
+| FAIL |
+Element with locator 'xpath://div[@class='form-group']/div/a[@role='button']' not found.
+------------------------------------------------------------------------------
+AppFunctionalityTest :: The test cases in this script focus in tes... | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\pabot_results\1\6\output.xml

@@ -11,6 +11,7 @@ ${target_browser}    Chrome
 
 *** Keywords ***
 Start Session
+    Log    Test ran on ${target_browser}.
     Open Browser    ${root_url}    ${target_browser}
 
 Close Session

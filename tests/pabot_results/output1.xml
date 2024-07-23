@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Rebot 7.0.1 (Python 3.12.3 on win32)" generated="2024-07-22T21:59:22.412732" rpa="false" schemaversion="5">
+<suite id="s1" name="AppFunctionalityTest" source="D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\AppFunctionalityTest.robot">
+<test id="s1-t1" name="User Fills Data Correctly and Submits the Form" line="14">
+<kw name="Start Session" owner="generic" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-07-22T21:58:47.871600" level="INFO">Test ran on Chrome.</msg>
+<arg>Test ran on ${target_browser}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-07-22T21:58:47.870603" elapsed="0.000997"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:47.872597" level="INFO">Opening browser 'Chrome' to base url 'https://formy-project.herokuapp.com/form'.</msg>
+<arg>${root_url}</arg>
+<arg>${target_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-22T21:58:47.871600" elapsed="3.144820"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:47.870603" elapsed="3.145817"/>
+</kw>
+<kw name="Fill Registration Form" owner="registrationPage">
+<if>
+<branch type="IF" condition="${should_fail}">
+<kw name="Log" owner="BuiltIn">
+<arg>As should fail, its not validating data before input.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-07-22T21:58:51.017416" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-07-22T21:58:51.017416" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Is Data Valid For Field" owner="Generics">
+<msg time="2024-07-22T21:58:51.018413" level="INFO">Comparing 'Fernando' with: [A-Za-z]+</msg>
+<arg>Text</arg>
+<arg>${name}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.017416" elapsed="0.000997"/>
+</kw>
+<kw name="Is Data Valid For Field" owner="Generics">
+<msg time="2024-07-22T21:58:51.018413" level="INFO">Comparing 'Garzon' with: [A-Za-z]+</msg>
+<arg>Text</arg>
+<arg>${sname}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.018413" elapsed="0.000000"/>
+</kw>
+<kw name="Is Data Valid For Field" owner="Generics">
+<msg time="2024-07-22T21:58:51.019411" level="INFO">Comparing 'QA Automation Tester' with: [A-Za-z]+</msg>
+<arg>Text</arg>
+<arg>${job_title}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.018413" elapsed="0.000998"/>
+</kw>
+<kw name="Is Data Valid For Field" owner="Generics">
+<msg time="2024-07-22T21:58:51.019411" level="INFO">Comparing '01/20/2024' with: ([0-9]+(/[0-9]+)+)</msg>
+<arg>Date</arg>
+<arg>${current_date}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.019411" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:51.017416" elapsed="0.002992"/>
+</branch>
+<status status="PASS" start="2024-07-22T21:58:51.017416" elapsed="0.002992"/>
+</if>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.020408" level="INFO">Typing text 'Fernando' into text field 'id:first-name'.</msg>
+<arg>${form_name_field}</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.020408" elapsed="0.084335"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.105765" level="INFO">Typing text 'Garzon' into text field 'id:last-name'.</msg>
+<arg>${form_sname_field}</arg>
+<arg>${sname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.104743" elapsed="0.064361"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.169104" level="INFO">Typing text 'QA Automation Tester' into text field 'id:job-title'.</msg>
+<arg>${form_job_field}</arg>
+<arg>${job_title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.169104" elapsed="0.063829"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-07-22T21:58:51.233930" level="INFO">${radio} = xpath://div[@class='input-group'][1]/div/input[@id='radio-button-1']</msg>
+<var>${radio}</var>
+<arg>SEPARATOR=</arg>
+<arg>${form_radial_field}</arg>
+<arg>[1]/div/input[@id='radio-button-1']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.232933" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-07-22T21:58:51.233930" level="INFO">${check} = xpath://div[@class='input-group'][2]/div/input[@id='checkbox-1']</msg>
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>${form_checkbox_field}</arg>
+<arg>[2]/div/input[@id='checkbox-1']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.233930" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.233930" level="INFO">Clicking element 'xpath://div[@class='input-group'][1]/div/input[@id='radio-button-1']'.</msg>
+<arg>${radio}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.233930" elapsed="0.041159"/>
+</kw>
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.275089" level="INFO">Selecting checkbox 'xpath://div[@class='input-group'][2]/div/input[@id='checkbox-1']'.</msg>
+<arg>${check}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.275089" elapsed="0.092112"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.368199" level="INFO">Selecting options from selection list 'id:select-menu' by value 2.</msg>
+<arg>${form_experience_field}</arg>
+<arg>2</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.367201" elapsed="0.097739"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.571654" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="filled-data-1.png"&gt;&lt;img src="filled-data-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>filename=filled-data-{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.464940" elapsed="0.107712"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.572652" level="INFO">Typing text '01/20/2024' into text field 'id:datepicker'.</msg>
+<arg>${form_date_field}</arg>
+<arg>${current_date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.572652" elapsed="0.142619"/>
+</kw>
+<arg>${valid_name}</arg>
+<arg>${valid_sname}</arg>
+<arg>${valid_job_title}</arg>
+<arg>${valid_date}</arg>
+<status status="PASS" start="2024-07-22T21:58:51.016420" elapsed="0.698851"/>
+</kw>
+<kw name="Submit Form" owner="registrationPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.716268" level="INFO">Clicking element 'xpath://div[@class='form-group']/div/a[@role='button']'.</msg>
+<arg>${submit_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.716268" elapsed="0.050864"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:51.716268" elapsed="0.050864"/>
+</kw>
+<kw name="Check Confirmation" owner="registrationPage">
+<kw name="Check if Confirmation is Visible in the Page and Message is Correct" owner="generic">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.768129" elapsed="0.229895"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:52.016636" level="INFO">${text} = The form was successfully submitted!</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.998024" elapsed="0.019609"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>${text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-07-22T21:58:52.017633" elapsed="0.000000"/>
+</kw>
+<arg>${alert_message_element}</arg>
+<arg>${msg}</arg>
+<status status="PASS" start="2024-07-22T21:58:51.768129" elapsed="0.249504"/>
+</kw>
+<arg>${success_alert_msg}</arg>
+<status status="PASS" start="2024-07-22T21:58:51.767132" elapsed="0.250501"/>
+</kw>
+<kw name="Close Session" owner="generic" type="TEARDOWN">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2024-07-22T21:58:52.018630" elapsed="0.006982"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-22T21:58:52.025612" elapsed="2.166093"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:52.017633" elapsed="2.174072"/>
+</kw>
+<tag>E2E</tag>
+<tag>REGRESSION</tag>
+<tag>SMOKE</tag>
+<tag>VALIDATION</tag>
+<status status="PASS" start="2024-07-22T21:58:47.869605" elapsed="6.322100"/>
+</test>
+<test id="s1-t2" name="Dropdown Field is Displaying Intended Content" line="20">
+<kw name="Start Session" owner="generic" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-07-22T21:58:47.870603" level="INFO">Test ran on Chrome.</msg>
+<arg>Test ran on ${target_browser}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-07-22T21:58:47.870603" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:47.872597" level="INFO">Opening browser 'Chrome' to base url 'https://formy-project.herokuapp.com/form'.</msg>
+<arg>${root_url}</arg>
+<arg>${target_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-22T21:58:47.871600" elapsed="3.556438"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:47.869605" elapsed="3.558433"/>
+</kw>
+<kw name="Check if Element is Loaded" owner="generic">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.428038" elapsed="0.047872"/>
+</kw>
+<arg>${form_experience_field}</arg>
+<status status="PASS" start="2024-07-22T21:58:51.428038" elapsed="0.047872"/>
+</kw>
+<kw name="Check if Options Matches Expected" owner="registrationPage">
+<kw name="Get List Items" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.577639" level="INFO">@{menu_options} = [ Select an option | 0-1 | 2-4 | 5-9 | 10+ ]</msg>
+<var>@{menu_options}</var>
+<arg>${form_experience_field}</arg>
+<doc>Returns all labels or values of selection list ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.476907" elapsed="0.100732"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-07-22T21:58:51.578636" level="INFO">@{test_list} = [ ]</msg>
+<var>@{test_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.578636" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-07-22T21:58:51.578636" level="INFO">${index} = 1</msg>
+<var>${index}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.578636" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${test_list}</arg>
+<arg>${element}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.579633" elapsed="0.000000"/>
+</kw>
+<var name="${element}">Select an option</var>
+<status status="PASS" start="2024-07-22T21:58:51.579633" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${test_list}</arg>
+<arg>${element}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.579633" elapsed="0.000998"/>
+</kw>
+<var name="${element}">0-1</var>
+<status status="PASS" start="2024-07-22T21:58:51.579633" elapsed="0.000998"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${test_list}</arg>
+<arg>${element}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.580631" elapsed="0.000000"/>
+</kw>
+<var name="${element}">2-4</var>
+<status status="PASS" start="2024-07-22T21:58:51.580631" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${test_list}</arg>
+<arg>${element}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.580631" elapsed="0.000997"/>
+</kw>
+<var name="${element}">5-9</var>
+<status status="PASS" start="2024-07-22T21:58:51.580631" elapsed="0.000997"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${test_list}</arg>
+<arg>${element}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.581628" elapsed="0.000000"/>
+</kw>
+<var name="${element}">10+</var>
+<status status="PASS" start="2024-07-22T21:58:51.581628" elapsed="0.000000"/>
+</iter>
+<var>${element}</var>
+<value>@{menu_options}</value>
+<status status="PASS" start="2024-07-22T21:58:51.578636" elapsed="0.002992"/>
+</for>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${menu_options}</arg>
+<arg>${test_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.581628" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:51.476907" elapsed="0.105718"/>
+</kw>
+<kw name="Close Session" owner="generic" type="TEARDOWN">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.582625" elapsed="0.005984"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.588609" elapsed="2.123376"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:51.582625" elapsed="2.129360"/>
+</kw>
+<tag>SMOKE</tag>
+<tag>VALIDATION</tag>
+<status status="PASS" start="2024-07-22T21:58:47.868607" elapsed="5.843378"/>
+</test>
+<test id="s1-t3" name="User Fills Incorrect Or Invalid Data and Submits the Form" line="25">
+<kw name="Start Session" owner="generic" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-07-22T21:58:47.870603" level="INFO">Test ran on Chrome.</msg>
+<arg>Test ran on ${target_browser}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-07-22T21:58:47.870603" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:47.871600" level="INFO">Opening browser 'Chrome' to base url 'https://formy-project.herokuapp.com/form'.</msg>
+<arg>${root_url}</arg>
+<arg>${target_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-22T21:58:47.870603" elapsed="3.527515"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:47.869605" elapsed="3.528513"/>
+</kw>
+<kw name="Fill Registration Form" owner="registrationPage">
+<if>
+<branch type="IF" condition="${should_fail}">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-07-22T21:58:51.400113" level="INFO">As should fail, its not validating data before input.</msg>
+<arg>As should fail, its not validating data before input.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.399116" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:51.399116" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE">
+<kw name="Is Data Valid For Field" owner="Generics">
+<arg>Text</arg>
+<arg>${name}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="NOT RUN" start="2024-07-22T21:58:51.400113" elapsed="0.000000"/>
+</kw>
+<kw name="Is Data Valid For Field" owner="Generics">
+<arg>Text</arg>
+<arg>${sname}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="NOT RUN" start="2024-07-22T21:58:51.400113" elapsed="0.000000"/>
+</kw>
+<kw name="Is Data Valid For Field" owner="Generics">
+<arg>Text</arg>
+<arg>${job_title}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="NOT RUN" start="2024-07-22T21:58:51.400113" elapsed="0.000000"/>
+</kw>
+<kw name="Is Data Valid For Field" owner="Generics">
+<arg>Date</arg>
+<arg>${current_date}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="NOT RUN" start="2024-07-22T21:58:51.401111" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-07-22T21:58:51.400113" elapsed="0.000998"/>
+</branch>
+<status status="PASS" start="2024-07-22T21:58:51.399116" elapsed="0.001995"/>
+</if>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.401111" level="INFO">Typing text 'F3rn4nd0' into text field 'id:first-name'.</msg>
+<arg>${form_name_field}</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.401111" elapsed="0.150598"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.552706" level="INFO">Typing text '647308' into text field 'id:last-name'.</msg>
+<arg>${form_sname_field}</arg>
+<arg>${sname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.551709" elapsed="0.091754"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.644460" level="INFO">Typing text '#J0b QA*%&amp;' into text field 'id:job-title'.</msg>
+<arg>${form_job_field}</arg>
+<arg>${job_title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.643463" elapsed="0.174533"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-07-22T21:58:51.818994" level="INFO">${radio} = xpath://div[@class='input-group'][1]/div/input[@id='radio-button-1']</msg>
+<var>${radio}</var>
+<arg>SEPARATOR=</arg>
+<arg>${form_radial_field}</arg>
+<arg>[1]/div/input[@id='radio-button-1']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.817996" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-07-22T21:58:51.818994" level="INFO">${check} = xpath://div[@class='input-group'][2]/div/input[@id='checkbox-1']</msg>
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>${form_checkbox_field}</arg>
+<arg>[2]/div/input[@id='checkbox-1']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.818994" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.818994" level="INFO">Clicking element 'xpath://div[@class='input-group'][1]/div/input[@id='radio-button-1']'.</msg>
+<arg>${radio}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.818994" elapsed="0.056848"/>
+</kw>
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.875842" level="INFO">Selecting checkbox 'xpath://div[@class='input-group'][2]/div/input[@id='checkbox-1']'.</msg>
+<arg>${check}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.875842" elapsed="0.071316"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:51.948156" level="INFO">Selecting options from selection list 'id:select-menu' by value 2.</msg>
+<arg>${form_experience_field}</arg>
+<arg>2</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-07-22T21:58:51.947158" elapsed="0.069478"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:52.128337" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="filled-data-1.png"&gt;&lt;img src="filled-data-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>filename=filled-data-{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-07-22T21:58:52.017633" elapsed="0.110704"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:52.129334" level="INFO">Typing text '20/40/12' into text field 'id:datepicker'.</msg>
+<arg>${form_date_field}</arg>
+<arg>${current_date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:52.128337" elapsed="0.104720"/>
+</kw>
+<arg>${invalid_name}</arg>
+<arg>${invalid_sname}</arg>
+<arg>${invalid_job_title}</arg>
+<arg>${invalid_date}</arg>
+<arg>True</arg>
+<status status="PASS" start="2024-07-22T21:58:51.399116" elapsed="0.834938"/>
+</kw>
+<kw name="Submit Form" owner="registrationPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:52.234054" level="INFO">Clicking element 'xpath://div[@class='form-group']/div/a[@role='button']'.</msg>
+<arg>${submit_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:52.234054" elapsed="0.036524"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:52.234054" elapsed="0.036524"/>
+</kw>
+<kw name="Check Confirmation" owner="registrationPage">
+<kw name="Check if Confirmation is Visible in the Page and Message is Correct" owner="generic">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-07-22T21:58:52.271575" elapsed="0.224023"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:52.515545" level="INFO">${text} = The form was successfully submitted!</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:52.495598" elapsed="0.019947"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-07-22T21:58:52.516543" level="FAIL">The form could not be submitted : != The form was successfully submitted!</msg>
+<arg>${message}</arg>
+<arg>${text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2024-07-22T21:58:52.516543" elapsed="0.000000">The form could not be submitted : != The form was successfully submitted!</status>
+</kw>
+<arg>${alert_message_element}</arg>
+<arg>${msg}</arg>
+<status status="FAIL" start="2024-07-22T21:58:52.270578" elapsed="0.246962">The form could not be submitted : != The form was successfully submitted!</status>
+</kw>
+<arg>${failed_alert_msg}</arg>
+<status status="FAIL" start="2024-07-22T21:58:52.270578" elapsed="0.246962">The form could not be submitted : != The form was successfully submitted!</status>
+</kw>
+<kw name="Close Session" owner="generic" type="TEARDOWN">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2024-07-22T21:58:52.518537" elapsed="0.010971"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-22T21:58:52.529508" elapsed="2.153177"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:52.517540" elapsed="2.165145"/>
+</kw>
+<tag>REGRESSION</tag>
+<tag>VALIDATION</tag>
+<status status="FAIL" start="2024-07-22T21:58:47.868607" elapsed="6.814078">The form could not be submitted : != The form was successfully submitted!</status>
+</test>
+<test id="s1-t4" name="User Try To Submit The Form Without Any Information" line="31">
+<kw name="Start Session" owner="generic" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-07-22T21:58:58.817874" level="INFO">Test ran on Chrome.</msg>
+<arg>Test ran on ${target_browser}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-07-22T21:58:58.817874" elapsed="0.000998"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:58.818872" level="INFO">Opening browser 'Chrome' to base url 'https://formy-project.herokuapp.com/form'.</msg>
+<arg>${root_url}</arg>
+<arg>${target_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-22T21:58:58.818872" elapsed="1.933829"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:58.816875" elapsed="1.935826"/>
+</kw>
+<kw name="Submit Form" owner="registrationPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:00.755694" level="INFO">Clicking element 'xpath://div[@class='form-group']/div/a[@role='button']'.</msg>
+<msg time="2024-07-22T21:59:01.582708" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-07-22T21:59:01.582708" level="FAIL">Element with locator 'xpath://div[@class='form-group']/div/a[@role='button']' not found.</msg>
+<arg>${submit_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-07-22T21:59:00.754696" elapsed="0.886377">Element with locator 'xpath://div[@class='form-group']/div/a[@role='button']' not found.</status>
+</kw>
+<status status="FAIL" start="2024-07-22T21:59:00.753699" elapsed="0.887374">Element with locator 'xpath://div[@class='form-group']/div/a[@role='button']' not found.</status>
+</kw>
+<kw name="Check Confirmation" owner="registrationPage">
+<arg>${failed_alert_msg}</arg>
+<status status="NOT RUN" start="2024-07-22T21:59:01.641073" elapsed="0.000000"/>
+</kw>
+<kw name="Close Session" owner="generic" type="TEARDOWN">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2024-07-22T21:59:01.642071" elapsed="0.008326"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-22T21:59:01.650397" elapsed="2.096416"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:59:01.642071" elapsed="2.104742"/>
+</kw>
+<tag>REGRESSION</tag>
+<tag>SMOKE</tag>
+<status status="FAIL" start="2024-07-22T21:58:58.816875" elapsed="4.929938">Element with locator 'xpath://div[@class='form-group']/div/a[@role='button']' not found.</status>
+</test>
+<test id="s1-t5" name="User Try To Submit The Form Without Some Information" line="37">
+<kw name="Start Session" owner="generic" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-07-22T21:58:59.571352" level="INFO">Test ran on Chrome.</msg>
+<arg>Test ran on ${target_browser}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-07-22T21:58:59.570357" elapsed="0.000995"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:59.571352" level="INFO">Opening browser 'Chrome' to base url 'https://formy-project.herokuapp.com/form'.</msg>
+<arg>${root_url}</arg>
+<arg>${target_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-22T21:58:59.571352" elapsed="2.681916"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:59.570357" elapsed="2.682911"/>
+</kw>
+<kw name="Fill Registration Form" owner="registrationPage">
+<if>
+<branch type="IF" condition="${should_fail}">
+<kw name="Log" owner="BuiltIn">
+<arg>As should fail, its not validating data before input.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-07-22T21:59:02.255262" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-07-22T21:59:02.255262" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Is Data Valid For Field" owner="Generics">
+<msg time="2024-07-22T21:59:02.256260" level="INFO">Comparing 'Fernando' with: [A-Za-z]+</msg>
+<arg>Text</arg>
+<arg>${name}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.255262" elapsed="0.000998"/>
+</kw>
+<kw name="Is Data Valid For Field" owner="Generics">
+<msg time="2024-07-22T21:59:02.256260" level="INFO">Not Tested as data is empty.</msg>
+<arg>Text</arg>
+<arg>${sname}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.256260" elapsed="0.000000"/>
+</kw>
+<kw name="Is Data Valid For Field" owner="Generics">
+<msg time="2024-07-22T21:59:02.257258" level="INFO">Comparing 'QA Automation Tester' with: [A-Za-z]+</msg>
+<arg>Text</arg>
+<arg>${job_title}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.257258" elapsed="0.000000"/>
+</kw>
+<kw name="Is Data Valid For Field" owner="Generics">
+<msg time="2024-07-22T21:59:02.257258" level="INFO">Not Tested as data is empty.</msg>
+<arg>Date</arg>
+<arg>${current_date}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.257258" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:59:02.255262" elapsed="0.001996"/>
+</branch>
+<status status="PASS" start="2024-07-22T21:59:02.255262" elapsed="0.001996"/>
+</if>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:02.258254" level="INFO">Typing text 'Fernando' into text field 'id:first-name'.</msg>
+<arg>${form_name_field}</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.257258" elapsed="0.086767"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:02.345023" level="INFO">Typing text '' into text field 'id:last-name'.</msg>
+<arg>${form_sname_field}</arg>
+<arg>${sname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.344025" elapsed="0.055875"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:02.400903" level="INFO">Typing text 'QA Automation Tester' into text field 'id:job-title'.</msg>
+<arg>${form_job_field}</arg>
+<arg>${job_title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.399900" elapsed="0.061050"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-07-22T21:59:02.461947" level="INFO">${radio} = xpath://div[@class='input-group'][1]/div/input[@id='radio-button-1']</msg>
+<var>${radio}</var>
+<arg>SEPARATOR=</arg>
+<arg>${form_radial_field}</arg>
+<arg>[1]/div/input[@id='radio-button-1']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.461947" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-07-22T21:59:02.461947" level="INFO">${check} = xpath://div[@class='input-group'][2]/div/input[@id='checkbox-1']</msg>
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>${form_checkbox_field}</arg>
+<arg>[2]/div/input[@id='checkbox-1']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.461947" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:02.462944" level="INFO">Clicking element 'xpath://div[@class='input-group'][1]/div/input[@id='radio-button-1']'.</msg>
+<arg>${radio}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.461947" elapsed="0.039431"/>
+</kw>
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:02.502401" level="INFO">Selecting checkbox 'xpath://div[@class='input-group'][2]/div/input[@id='checkbox-1']'.</msg>
+<arg>${check}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.502401" elapsed="0.053455"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:02.556854" level="INFO">Selecting options from selection list 'id:select-menu' by value 2.</msg>
+<arg>${form_experience_field}</arg>
+<arg>2</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.555856" elapsed="0.061836"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:02.707258" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="filled-data-1.png"&gt;&lt;img src="filled-data-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>filename=filled-data-{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.617692" elapsed="0.089566"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:02.708255" level="INFO">Typing text '' into text field 'id:datepicker'.</msg>
+<arg>${form_date_field}</arg>
+<arg>${current_date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.708255" elapsed="0.073194"/>
+</kw>
+<arg>${valid_name}</arg>
+<arg>${EMPTY}</arg>
+<arg>${valid_job_title}</arg>
+<arg>${EMPTY}</arg>
+<status status="PASS" start="2024-07-22T21:59:02.253268" elapsed="0.529179"/>
+</kw>
+<kw name="Submit Form" owner="registrationPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:02.783443" level="INFO">Clicking element 'xpath://div[@class='form-group']/div/a[@role='button']'.</msg>
+<arg>${submit_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.782447" elapsed="0.046874"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:59:02.782447" elapsed="0.046874"/>
+</kw>
+<kw name="Check Confirmation" owner="registrationPage">
+<kw name="Check if Confirmation is Visible in the Page and Message is Correct" owner="generic">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-07-22T21:59:02.830318" elapsed="0.221581"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:03.071820" level="INFO">${text} = The form was successfully submitted!</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:03.052895" elapsed="0.018925"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-07-22T21:59:03.072817" level="FAIL">The form could not be submitted : != The form was successfully submitted!</msg>
+<arg>${message}</arg>
+<arg>${text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2024-07-22T21:59:03.071820" elapsed="0.000997">The form could not be submitted : != The form was successfully submitted!</status>
+</kw>
+<arg>${alert_message_element}</arg>
+<arg>${msg}</arg>
+<status status="FAIL" start="2024-07-22T21:59:02.830318" elapsed="0.243496">The form could not be submitted : != The form was successfully submitted!</status>
+</kw>
+<arg>${failed_alert_msg}</arg>
+<status status="FAIL" start="2024-07-22T21:59:02.829321" elapsed="0.244493">The form could not be submitted : != The form was successfully submitted!</status>
+</kw>
+<kw name="Close Session" owner="generic" type="TEARDOWN">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2024-07-22T21:59:03.074812" elapsed="0.009973"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-22T21:59:03.084785" elapsed="2.124802"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:59:03.073814" elapsed="2.135773"/>
+</kw>
+<tag>REGRESSION</tag>
+<status status="FAIL" start="2024-07-22T21:58:59.569359" elapsed="5.640228">The form could not be submitted : != The form was successfully submitted!</status>
+</test>
+<test id="s1-t6" name="Multiple Options Fields Works as Expected" line="44">
+<kw name="Start Session" owner="generic" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-07-22T21:59:05.716278" level="INFO">Test ran on Chrome.</msg>
+<arg>Test ran on ${target_browser}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-07-22T21:59:05.715282" elapsed="0.000996"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:05.716278" level="INFO">Opening browser 'Chrome' to base url 'https://formy-project.herokuapp.com/form'.</msg>
+<arg>${root_url}</arg>
+<arg>${target_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-22T21:59:05.716278" elapsed="2.544126"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:59:05.714284" elapsed="2.546120"/>
+</kw>
+<kw name="Checkbox Field Works As Expected" owner="registrationPage">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-07-22T21:59:08.262400" level="INFO">@{selected_list} = [ ]</msg>
+<var>@{selected_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.261400" elapsed="0.001000"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-07-22T21:59:08.263396" level="INFO">${check} = xpath://div[@class='input-group'][2]/div/input[@id='checkbox-1']</msg>
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>${form_checkbox_field}</arg>
+<arg>[2]/div/input[@id='checkbox-${counter}']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.263396" elapsed="0.000000"/>
+</kw>
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:08.264393" level="INFO">Selecting checkbox 'xpath://div[@class='input-group'][2]/div/input[@id='checkbox-1']'.</msg>
+<arg>${check}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.263396" elapsed="0.087765"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-07-22T21:59:08.552169" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.351161" elapsed="0.201008"/>
+</kw>
+<kw name="Checkbox Should Be Selected" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:08.552169" level="INFO">Verifying checkbox 'xpath://div[@class='input-group'][2]/div/input[@id='checkbox-1']' is selected.</msg>
+<arg>${check}</arg>
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.552169" elapsed="0.027925"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:08.598047" level="INFO">${text} = </msg>
+<var>${text}</var>
+<arg>${check}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.580094" elapsed="0.017953"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${selected_list}</arg>
+<arg>${check}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.598047" elapsed="0.000997"/>
+</kw>
+<var name="${counter}">1</var>
+<status status="PASS" start="2024-07-22T21:59:08.262400" elapsed="0.336644"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-07-22T21:59:08.599044" level="INFO">${check} = xpath://div[@class='input-group'][2]/div/input[@id='checkbox-2']</msg>
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>${form_checkbox_field}</arg>
+<arg>[2]/div/input[@id='checkbox-${counter}']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.599044" elapsed="0.000997"/>
+</kw>
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:08.600041" level="INFO">Selecting checkbox 'xpath://div[@class='input-group'][2]/div/input[@id='checkbox-2']'.</msg>
+<arg>${check}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.600041" elapsed="0.046876"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-07-22T21:59:08.847200" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.646917" elapsed="0.200283"/>
+</kw>
+<kw name="Checkbox Should Be Selected" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:08.847200" level="INFO">Verifying checkbox 'xpath://div[@class='input-group'][2]/div/input[@id='checkbox-2']' is selected.</msg>
+<arg>${check}</arg>
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.847200" elapsed="0.020951"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:08.880119" level="INFO">${text} = </msg>
+<var>${text}</var>
+<arg>${check}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.868151" elapsed="0.012965"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${selected_list}</arg>
+<arg>${check}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.881116" elapsed="0.000000"/>
+</kw>
+<var name="${counter}">2</var>
+<status status="PASS" start="2024-07-22T21:59:08.599044" elapsed="0.282072"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-07-22T21:59:08.882113" level="INFO">${check} = xpath://div[@class='input-group'][2]/div/input[@id='checkbox-3']</msg>
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>${form_checkbox_field}</arg>
+<arg>[2]/div/input[@id='checkbox-${counter}']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.881116" elapsed="0.000997"/>
+</kw>
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:08.882113" level="INFO">Selecting checkbox 'xpath://div[@class='input-group'][2]/div/input[@id='checkbox-3']'.</msg>
+<arg>${check}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.882113" elapsed="0.045880"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-07-22T21:59:09.129514" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-07-22T21:59:08.927993" elapsed="0.201521"/>
+</kw>
+<kw name="Checkbox Should Be Selected" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:09.129514" level="INFO">Verifying checkbox 'xpath://div[@class='input-group'][2]/div/input[@id='checkbox-3']' is selected.</msg>
+<arg>${check}</arg>
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<status status="PASS" start="2024-07-22T21:59:09.129514" elapsed="0.020097"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:09.163574" level="INFO">${text} = </msg>
+<var>${text}</var>
+<arg>${check}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:09.149611" elapsed="0.013963"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${selected_list}</arg>
+<arg>${check}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-07-22T21:59:09.163574" elapsed="0.000997"/>
+</kw>
+<var name="${counter}">3</var>
+<status status="PASS" start="2024-07-22T21:59:08.881116" elapsed="0.283455"/>
+</iter>
+<var>${counter}</var>
+<value>1</value>
+<value>${check_boxes_amount} + 1</value>
+<status status="PASS" start="2024-07-22T21:59:08.262400" elapsed="0.902171"/>
+</for>
+<kw name="Length Should Be" owner="BuiltIn">
+<msg time="2024-07-22T21:59:09.164571" level="INFO">Length is 3.</msg>
+<arg>${selected_list}</arg>
+<arg>${check_boxes_amount}</arg>
+<doc>Verifies that the length of the given item is correct.</doc>
+<status status="PASS" start="2024-07-22T21:59:09.164571" elapsed="0.000000"/>
+</kw>
+<arg>${form_checkbox_field}</arg>
+<status status="PASS" start="2024-07-22T21:59:08.260404" elapsed="0.904167"/>
+</kw>
+<kw name="Radio Selectors Works As Expected" owner="registrationPage">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-07-22T21:59:09.165568" level="INFO">@{selected_list} = [ ]</msg>
+<var>@{selected_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-07-22T21:59:09.165568" elapsed="0.000000"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-07-22T21:59:09.166566" level="INFO">${radio} = xpath://div[@class='input-group'][1]/div/input[@id='radio-button-1']</msg>
+<var>${radio}</var>
+<arg>SEPARATOR=</arg>
+<arg>${form_radial_field}</arg>
+<arg>[1]/div/input[@id='radio-button-${counter}']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-07-22T21:59:09.166566" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:09.166566" level="INFO">Clicking element 'xpath://div[@class='input-group'][1]/div/input[@id='radio-button-1']'.</msg>
+<arg>${radio}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:59:09.166566" elapsed="0.037900"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-07-22T21:59:09.404949" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-07-22T21:59:09.204466" elapsed="0.200483"/>
+</kw>
+<kw name="Select Radio Button" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:59:09.404949" level="INFO">Selecting 'radio-button-1' from radio button 'Radio button'.</msg>
+<msg time="2024-07-22T21:59:09.491717" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-07-22T21:59:09.491717" level="FAIL">No radio button with name 'Radio button' and value 'radio-button-1' found.</msg>
+<arg>Radio button</arg>
+<arg>radio-button-${counter}</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="FAIL" start="2024-07-22T21:59:09.404949" elapsed="0.098736">No radio button with name 'Radio button' and value 'radio-button-1' found.</status>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${radio}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-07-22T21:59:09.503685" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${selected_list}</arg>
+<arg>${radio}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-07-22T21:59:09.503685" elapsed="0.000000"/>
+</kw>
+<var name="${counter}">1</var>
+<status status="FAIL" start="2024-07-22T21:59:09.165568" elapsed="0.338117">No radio button with name 'Radio button' and value 'radio-button-1' found.</status>
+</iter>
+<var>${counter}</var>
+<value>1</value>
+<value>${radio_amount} + 1</value>
+<status status="FAIL" start="2024-07-22T21:59:09.165568" elapsed="0.338117">No radio button with name 'Radio button' and value 'radio-button-1' found.</status>
+</for>
+<kw name="Length Should Be" owner="BuiltIn">
+<arg>${selected_list}</arg>
+<arg>${check_boxes_amount}</arg>
+<doc>Verifies that the length of the given item is correct.</doc>
+<status status="NOT RUN" start="2024-07-22T21:59:09.504683" elapsed="0.000000"/>
+</kw>
+<arg>${form_radial_field}</arg>
+<status status="FAIL" start="2024-07-22T21:59:09.165568" elapsed="0.339115">No radio button with name 'Radio button' and value 'radio-button-1' found.</status>
+</kw>
+<kw name="Close Session" owner="generic" type="TEARDOWN">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2024-07-22T21:59:09.504683" elapsed="0.005984"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-22T21:59:09.510667" elapsed="2.139681"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:59:09.504683" elapsed="2.145665"/>
+</kw>
+<tag>REGRESSION</tag>
+<tag>SMOKE</tag>
+<tag>VALIDATION</tag>
+<status status="FAIL" start="2024-07-22T21:59:05.714284" elapsed="5.936064">No radio button with name 'Radio button' and value 'radio-button-1' found.</status>
+</test>
+<doc>The test cases in this script focus in testing the app functional requirements
+and issues that might be found by misinterpretation of those.</doc>
+<status status="FAIL" start="2024-07-22T21:58:47.438000" elapsed="6.753854"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">E2E</stat>
+<stat pass="1" fail="4" skip="0">REGRESSION</stat>
+<stat pass="2" fail="2" skip="0">SMOKE</stat>
+<stat pass="2" fail="2" skip="0">VALIDATION</stat>
+</tag>
+<suite>
+<stat pass="2" fail="4" skip="0" id="s1" name="AppFunctionalityTest">AppFunctionalityTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

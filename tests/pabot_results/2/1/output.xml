@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.3 on win32)" generated="2024-07-22T21:58:47.426879" rpa="false" schemaversion="5">
+<suite id="s1" name="AppFunctionalityTest" source="D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\AppFunctionalityTest.robot">
+<test id="s1-t1" name="User Fills Data Correctly and Submits the Form" line="14">
+<kw name="Start Session" owner="generic" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-07-22T21:58:47.870603" level="INFO">Test ran on Firefox.</msg>
+<arg>Test ran on ${target_browser}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-07-22T21:58:47.869605" elapsed="0.000998"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:47.872597" level="INFO">Opening browser 'Firefox' to base url 'https://formy-project.herokuapp.com/form'.</msg>
+<arg>${root_url}</arg>
+<arg>${target_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-22T21:58:47.870603" elapsed="8.856742"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:47.869605" elapsed="8.857740"/>
+</kw>
+<kw name="Fill Registration Form" owner="registrationPage">
+<if>
+<branch type="IF" condition="${should_fail}">
+<kw name="Log" owner="BuiltIn">
+<arg>As should fail, its not validating data before input.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-07-22T21:58:56.729339" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-07-22T21:58:56.728342" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE">
+<kw name="Is Data Valid For Field" owner="Generics">
+<msg time="2024-07-22T21:58:56.729339" level="INFO">Comparing 'Fernando' with: [A-Za-z]+</msg>
+<arg>Text</arg>
+<arg>${name}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.729339" elapsed="0.000000"/>
+</kw>
+<kw name="Is Data Valid For Field" owner="Generics">
+<msg time="2024-07-22T21:58:56.730336" level="INFO">Comparing 'Garzon' with: [A-Za-z]+</msg>
+<arg>Text</arg>
+<arg>${sname}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.730336" elapsed="0.000000"/>
+</kw>
+<kw name="Is Data Valid For Field" owner="Generics">
+<msg time="2024-07-22T21:58:56.730336" level="INFO">Comparing 'QA Automation Tester' with: [A-Za-z]+</msg>
+<arg>Text</arg>
+<arg>${job_title}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.730336" elapsed="0.000000"/>
+</kw>
+<kw name="Is Data Valid For Field" owner="Generics">
+<msg time="2024-07-22T21:58:56.731333" level="INFO">Comparing '01/20/2024' with: ([0-9]+(/[0-9]+)+)</msg>
+<arg>Date</arg>
+<arg>${current_date}</arg>
+<doc>Uses RegEx to validate if data should be accepted by the given field_type.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.731333" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:56.729339" elapsed="0.001994"/>
+</branch>
+<status status="PASS" start="2024-07-22T21:58:56.728342" elapsed="0.002991"/>
+</if>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:56.732331" level="INFO">Typing text 'Fernando' into text field 'id:first-name'.</msg>
+<arg>${form_name_field}</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.731333" elapsed="0.079791"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:56.811124" level="INFO">Typing text 'Garzon' into text field 'id:last-name'.</msg>
+<arg>${form_sname_field}</arg>
+<arg>${sname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.811124" elapsed="0.009973"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:56.822094" level="INFO">Typing text 'QA Automation Tester' into text field 'id:job-title'.</msg>
+<arg>${form_job_field}</arg>
+<arg>${job_title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.822094" elapsed="0.013963"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-07-22T21:58:56.837054" level="INFO">${radio} = xpath://div[@class='input-group'][1]/div/input[@id='radio-button-1']</msg>
+<var>${radio}</var>
+<arg>SEPARATOR=</arg>
+<arg>${form_radial_field}</arg>
+<arg>[1]/div/input[@id='radio-button-1']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.836057" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-07-22T21:58:56.837054" level="INFO">${check} = xpath://div[@class='input-group'][2]/div/input[@id='checkbox-1']</msg>
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>${form_checkbox_field}</arg>
+<arg>[2]/div/input[@id='checkbox-1']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.837054" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:56.838051" level="INFO">Clicking element 'xpath://div[@class='input-group'][1]/div/input[@id='radio-button-1']'.</msg>
+<arg>${radio}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:56.837054" elapsed="0.219858"/>
+</kw>
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:57.057910" level="INFO">Selecting checkbox 'xpath://div[@class='input-group'][2]/div/input[@id='checkbox-1']'.</msg>
+<arg>${check}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:57.057910" elapsed="0.219255"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:57.277165" level="INFO">Selecting options from selection list 'id:select-menu' by value 2.</msg>
+<arg>${form_experience_field}</arg>
+<arg>2</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-07-22T21:58:57.277165" elapsed="0.232751"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:57.530736" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="filled-data-1.png"&gt;&lt;img src="filled-data-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>filename=filled-data-{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-07-22T21:58:57.509916" elapsed="0.020820"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:57.530736" level="INFO">Typing text '01/20/2024' into text field 'id:datepicker'.</msg>
+<arg>${form_date_field}</arg>
+<arg>${current_date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:57.530736" elapsed="0.035903"/>
+</kw>
+<arg>${valid_name}</arg>
+<arg>${valid_sname}</arg>
+<arg>${valid_job_title}</arg>
+<arg>${valid_date}</arg>
+<status status="PASS" start="2024-07-22T21:58:56.727345" elapsed="0.839294"/>
+</kw>
+<kw name="Submit Form" owner="registrationPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:57.567667" level="INFO">Clicking element 'xpath://div[@class='form-group']/div/a[@role='button']'.</msg>
+<arg>${submit_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:57.567667" elapsed="0.224640"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:57.567667" elapsed="0.224640"/>
+</kw>
+<kw name="Check Confirmation" owner="registrationPage">
+<kw name="Check if Confirmation is Visible in the Page and Message is Correct" owner="generic">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-07-22T21:58:57.793306" elapsed="0.007600"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T21:58:57.807843" level="INFO">${text} = The form was successfully submitted!</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T21:58:57.800906" elapsed="0.007936"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>${text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-07-22T21:58:57.808842" elapsed="0.000000"/>
+</kw>
+<arg>${alert_message_element}</arg>
+<arg>${msg}</arg>
+<status status="PASS" start="2024-07-22T21:58:57.793306" elapsed="0.015536"/>
+</kw>
+<arg>${success_alert_msg}</arg>
+<status status="PASS" start="2024-07-22T21:58:57.792307" elapsed="0.016535"/>
+</kw>
+<kw name="Close Session" owner="generic" type="TEARDOWN">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" start="2024-07-22T21:58:57.809839" elapsed="0.001994"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-22T21:58:57.811833" elapsed="2.988743"/>
+</kw>
+<status status="PASS" start="2024-07-22T21:58:57.809839" elapsed="2.990737"/>
+</kw>
+<tag>E2E</tag>
+<tag>REGRESSION</tag>
+<tag>SMOKE</tag>
+<tag>VALIDATION</tag>
+<status status="PASS" start="2024-07-22T21:58:47.868607" elapsed="12.931969"/>
+</test>
+<doc>The test cases in this script focus in testing the app functional requirements
+and issues that might be found by misinterpretation of those.</doc>
+<status status="PASS" start="2024-07-22T21:58:47.465776" elapsed="13.334800"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">E2E</stat>
+<stat pass="1" fail="0" skip="0">REGRESSION</stat>
+<stat pass="1" fail="0" skip="0">SMOKE</stat>
+<stat pass="1" fail="0" skip="0">VALIDATION</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="AppFunctionalityTest">AppFunctionalityTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

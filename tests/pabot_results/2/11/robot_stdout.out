@@ -1,0 +1,30 @@
+==============================================================================
+AppFunctionalityTest :: The test cases in this script focus in testing the ...
+==============================================================================
+Multiple Options Fields Works as Expected                               
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\AppFunctionalityTest.robot:44
+    T:  Multiple Options Fields Works as Expected    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\AppFunctionalityTest.robot:48
+      Radio Selectors Works As Expected    ${form_radial_field}
+      |  ${form_radial_field} = xpath://div[@class='input-group'] (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\PO\registrationPage.robot:100
+      ${counter}    IN RANGE    1    ${radio_amount} + 1    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\PO\registrationPage.robot:100
+      ${counter} = 1    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\PO\registrationPage.robot:104
+      Select Radio Button    Radio button    radio-button-${counter}
+      |  radio-button-${counter} = radio-button-1 (str)
+______________________________________________________________________________
+| FAIL |
+No radio button with name 'Radio button' and value 'radio-button-1' found.
+------------------------------------------------------------------------------
+AppFunctionalityTest :: The test cases in this script focus in tes... | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  D:\Documents\Test Automation Projects\FORMY_App\Formy_App_Automation_Tests\tests\pabot_results\2\11\output.xml

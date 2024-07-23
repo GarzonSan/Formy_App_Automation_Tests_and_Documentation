@@ -1,0 +1,10 @@
+datasources:6ba6fbf0ac720ab6a1a3f438f0442333f7c222b5
+commandlineoptions:65f95c924ba97541f47949701c4e3c51192a5b43
+suitesfrom:no-suites-from-option
+file:03cd20880511c4068d781abf75b8807f2e7e140f
+--test AppFunctionalityTest.User Fills Data Correctly and Submits the Form
+--test AppFunctionalityTest.Dropdown Field is Displaying Intended Content
+--test AppFunctionalityTest.User Fills Incorrect Or Invalid Data and Submits the Form
+--test AppFunctionalityTest.User Try To Submit The Form Without Any Information
+--test AppFunctionalityTest.User Try To Submit The Form Without Some Information
+--test AppFunctionalityTest.Multiple Options Fields Works as Expected

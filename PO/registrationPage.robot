@@ -55,7 +55,7 @@ Fill Registration Form
     Select Checkbox    ${check}
 
     Select From List By Value    ${form_experience_field}    2
-    Capture Page Screenshot    filename=correctly-filled-data-{index}.png
+    Capture Page Screenshot    filename=filled-data-{index}.png
     Input Text    ${form_date_field}    ${current_date}
 
 Submit Form
